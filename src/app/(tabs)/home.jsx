@@ -10,7 +10,6 @@ import { AuthContext } from "@/context/authContext";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import CustomSafeArea from "@/components/CustomSafeArea";
-import { useTheme } from "@/context/ThemeContext";
 
 const homeTiles = [
   {
@@ -48,13 +47,9 @@ const homeTiles = [
 
 const Home = () => {
   const { user } = useContext(AuthContext);
-  const { isDarkMode } = useTheme();
-  
-  const bgColor = isDarkMode ? "black" : "white";
-  
   return (
-    <CustomSafeArea applyTopInset={false} bgColour={bgColor}>
-      <View className={`px-4 flex-1 bg-${bgColor}`}>
+    <CustomSafeArea applyTopInset={false} bgColour="black">
+      <View className="px-4 flex-1">
         {/* Header */}
         <View className="flex-row justify-between items-center my-4">
           <WelcomeMessage name={user.username ? user.username : "Username"} />

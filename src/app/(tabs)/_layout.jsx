@@ -3,24 +3,15 @@ import React from "react";
 import { Tabs } from "expo-router";
 import Entypo from "@expo/vector-icons/Entypo";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { useTheme } from "@/context/ThemeContext";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 const _layout = () => {
-  const { isDarkMode } = useTheme();
-  
-  const tabBarBgColor = isDarkMode ? "#000000" : "#FFFFFF";
-  const tabBarBorderColor = isDarkMode ? "#374151" : "#E5E7EB";
-  
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: {
-          backgroundColor: tabBarBgColor,
-          borderTopColor: tabBarBorderColor,
-          borderTopWidth: 1,
-        },
+
         tabBarItemStyle: {
           borderTopWidth: 0,
         },
@@ -68,6 +59,19 @@ const _layout = () => {
                 color={focused ? "#EB7363" : "gray"}
               />
             </>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="friends"
+        options={{
+          title: "friends",
+          tabBarIcon: ({ focused }) => (
+            <FontAwesome5
+              name="users"             
+              size={24}
+              color={focused ? "#EB7363" : "gray"}
+            />
           ),
         }}
       />

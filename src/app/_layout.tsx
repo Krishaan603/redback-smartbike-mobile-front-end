@@ -1,24 +1,16 @@
 import { AuthProvider } from "@/context/authContext";
-import { ThemeProvider } from "@/context/ThemeContext";
 import { Stack } from "expo-router";
 import React from "react";
-import { useColorScheme } from "react-native";
 
 const _layout = () => {
-  const colorScheme = useColorScheme();
-  
-  // Theme-aware header colors
-  const headerTintColor = colorScheme === 'dark' ? 'white' : '#007AFF';
-  
   return (
     <>
-      <ThemeProvider>
-        <AuthProvider>
+      <AuthProvider>
         <Stack
           screenOptions={{
             headerTransparent: true,
             headerTitle: "",
-            headerTintColor: headerTintColor,
+            headerTintColor: "black",
           }}
         >
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -47,7 +39,7 @@ const _layout = () => {
             options={{
               headerShown: true,
               headerTitle: "Edit Profile",
-              headerTintColor: headerTintColor,
+              headerTintColor: "black",
             }}
           />
 
@@ -56,7 +48,7 @@ const _layout = () => {
             options={{
               headerShown: true,
               headerTitle: "Delete Account",
-              headerTintColor: headerTintColor,
+              headerTintColor: "black",
             }}
           />
 
@@ -65,7 +57,7 @@ const _layout = () => {
             options={{
               headerShown: true,
               headerTitle: "Privacy",
-              headerTintColor: headerTintColor,
+              headerTintColor: "black",
             }}
           />
 
@@ -74,7 +66,7 @@ const _layout = () => {
             options={{
               headerShown: true,
               headerTitle: "About",
-              headerTintColor: headerTintColor,
+              headerTintColor: "black",
             }}
           />
 
@@ -83,12 +75,11 @@ const _layout = () => {
             options={{
               headerShown: true,
               headerTitle: "",
-              headerTintColor: headerTintColor,
+              headerTintColor: "white",
             }}
           />
         </Stack>
-        </AuthProvider>
-      </ThemeProvider>
+      </AuthProvider>
     </>
   );
 };

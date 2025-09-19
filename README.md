@@ -101,4 +101,3 @@ Alternatively the Link tag can also be used
 This will navigate to the home screen and clear the stack.
 
 
-# redback-app
